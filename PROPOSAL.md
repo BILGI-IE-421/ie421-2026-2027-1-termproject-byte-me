@@ -1,8 +1,8 @@
 # Your project title
 
-**Team:** your-team-name · **Theme:** T? Theme name
+**Team:** byte-me · **Theme:** T4 Culture by the Numbers: music, film, LEGO, Nobel, names
 
-**Members:** Name Surname (Student ID) · Name Surname (Student ID) · Name Surname (Student ID)
+**Members:** Aleyna Cingiler 123203093 · Meryem Öncü 125203106 · Hakan Yıldırım 122203040 · Abdüssamet Tutal 123203085
 
 <!-- Keep this page to one screen: you present your 3-minute pitch from it in class. Replace the italic lines, then delete this comment. -->
 
