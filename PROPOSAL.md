@@ -17,6 +17,6 @@ Popular music operates in a global market where songs compete for attention whil
 
 ## Our questions
 
-1. How has the typical lifespan of a hit song on the Billboard Hot 100 changed across decades?
-2. How similar are the most popular songs across countries, and which countries have the most distinctive charts?
-3. How does international chart presence relate to chart longevity and peak popularity?
+1. How has the typical lifespan of a hit song on the Billboard Hot 100 changed historically?
+2. How similar are music tastes across countries, and which countries diverge?
+3.How does going global on a massive scale (multi-country presence) shape a song's success and longevity?
