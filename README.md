@@ -13,7 +13,7 @@ Popular music operates in a globalized digital marketplace where streaming platf
 - `data/`: Contains the dataset documentation in `data/README.md` (raw Kaggle downloads stay in `data/raw/` and processed tables in `data/processed/`, and are excluded or regenerated locally).
 - `scripts/`: Contains `download_data.py` (downloads raw Kaggle datasets), `common.py` (shared paths, date parser, and song-key helper), `preprocess.py` and `clean_data.py` (clean, stage, and join Billboard and Spotify tables), `figures.py`, `q1_trend.py`, and `q1_distribution.py` (generate Q1 static figures and summary CSVs), and `eda.ipynb` (exploratory data analysis notebook).
 - `visuals/`: Includes the generated static figures `fig1_lifespan_trend.png` (annual median Billboard Hot 100 lifespan trend, 1958–2020) and `fig2_lifespan_distribution.png` (chart lifespan distributions comparing 1990–2004 and 2015–2020).
-- `index.html` and `css/`: Main webpage (`index.html`) and stylesheet (`css/style.css`) for GitHub Pages hosting.
+- - `index.html`: Main webpage for GitHub Pages hosting (styles are inside the file).
 - `PROPOSAL.md`, `AI_USAGE.md`: Our project proposal defining the problem and research questions, and our AI usage declaration.
 - `requirements.txt`: Python libraries required by the download, preprocessing, and plotting scripts.
 - `.github/`: The automatic repository structure and script-compilation check (`structure-check.yml`).
