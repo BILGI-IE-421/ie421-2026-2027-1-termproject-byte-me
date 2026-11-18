@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Disposable Hits, Global Sounds: Music Under Platform Capitalism</title>
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; color: #222; }
+  h1 { line-height: 1.2; }
+  figure { margin: 2rem 0; }
+  figure img { width: 100%; height: auto; border: 1px solid #eee; }
+  .takeaway { font-weight: 600; margin-top: .6rem; }
+  .note { color: #555; font-size: .95rem; }
+  footer { margin-top: 3rem; font-size: .9rem; color: #666; }
+</style>
+</head>
+<body>
+<h1>Disposable Hits, Global Sounds: Music Under Platform Capitalism</h1>
+<p><strong>Team byte-me</strong> · IE 421 Data Science for Engineers · Theme T4: Culture by the Numbers</p>
+<p class="note">Status: Milestone 2 (Data &amp; EDA checkpoint). This page will grow into the full data story.</p>
+
+<h2>Our questions</h2>
+<ol>
+  <li>How has the lifespan of a hit song on the Billboard Hot 100 changed over time?</li>
+  <li>How similar are music tastes across countries, and which countries diverge?</li>
+  <li>Does being on the charts in many countries make a song more successful and longer-lived?</li>
+</ol>
+
+<h2>Question 1: Are hits becoming disposable?</h2>
+
+<figure>
+  <img src="visuals/fig1_lifespan_trend.png" alt="Line chart of median weeks on the Billboard Hot 100 by debut year, 1958 to 2020, with the middle 50 percent shaded.">
+  <figcaption class="takeaway">Takeaway: the typical song's Hot 100 run grew from about 7 weeks in the 1960s to a peak of 20 weeks around 2001, then fell to just 2 weeks for songs debuting in 2020.</figcaption>
+  <p class="note">The upper edge of the band stays flat at 20 weeks from the 1990s on. This looks like a chart rule rather than listener behaviour: Billboard removes older songs that have fallen down the chart after about 20 weeks. We will document this in the data card and check it before the final draft.</p>
+</figure>
+
+<figure>
+  <img src="visuals/fig2_lifespan_distribution.png" alt="Step histogram comparing total weeks on the Hot 100 for songs debuting 1990-2004 and 2015-2020.">
+  <figcaption class="takeaway">Takeaway: only 3% of songs that debuted in 1990–2004 left the chart within two weeks; for 2015–2020 debuts it was 43%, and about one in three lasted a single week.</figcaption>
+  <p class="note">Next step: test whether this comes from streaming-era album releases, where many tracks from one album enter the chart for a single week, rather than from shorter lives of the biggest hits.</p>
+</figure>
+
+<footer>
+  Data: Billboard Hot 100 weekly charts, 1958-08-04 to 2021-11-06 (Kaggle, dhruvildave); Top Spotify Songs in 73 Countries (Kaggle, asaniczka).
+  Figures produced by <code>scripts/figures.py</code>.
+</footer>
+</body>
+</html>
