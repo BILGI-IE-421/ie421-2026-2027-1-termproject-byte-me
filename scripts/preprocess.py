@@ -356,6 +356,35 @@ def clean_spotify(path: Path, log: dict) -> None:
     )
 
 
+def join_sources(log: dict) -> None:
+    """Join Billboard songs (left) with Spotify tracks on the normalised song_key.
+
+    The two sources do not overlap in time (Billboard ends Nov 2021, Spotify starts
+    Oct 2023), so this is a song-level join, not a date join.
+    """
+    songs = pd.read_csv(OUT_DIR / "billboard_songs.csv")
+    tracks = pd.read_csv(OUT_DIR / "spotify_tracks.csv")
+
+    # Several Spotify ids can share one song_key (remasters, re-uploads):
+    # keep the most-charted one so the join is many-to-one.
+    sp_one = (tracks.dropna(subset=["song_key"])
+                    .sort_values("chart_days", ascending=False)
+                    .drop_duplicates("song_key"))
+    keep = ["song_key", "spotify_id", "chart_days", "best_rank", "n_countries",
+            "popularity_max", "first_seen", "last_seen"]
+    sp_one = sp_one[keep].rename(columns=lambda c: c if c == "song_key" else f"sp_{c}")
+
+    joined = songs.merge(sp_one, on="song_key", how="left", validate="many_to_one")
+    joined["matched_spotify"] = joined["sp_spotify_id"].notna()
+    joined.to_csv(OUT_DIR / "billboard_songs_joined.csv", index=False)
+
+    log["join_billboard_songs"] = int(len(joined))
+    log["join_billboard_songs_matched_to_spotify"] = int(joined["matched_spotify"].sum())
+    log["join_match_rate"] = round(float(joined["matched_spotify"].mean()), 4)
+    print(f"[Join] {log['join_billboard_songs_matched_to_spotify']:,} of "
+          f"{len(joined):,} Billboard songs matched a Spotify track")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Preprocess Billboard and Spotify datasets.")
     parser.add_argument("--billboard", default=None, help="Path to raw Billboard CSV")
@@ -382,6 +411,7 @@ def main() -> None:
 
     clean_billboard(billboard_path, log)
     clean_spotify(spotify_path, log)
+    join_sources(log)
 
     with open(LOG_PATH, "w", encoding="utf-8") as f:
         json.dump(log, f, indent=2, ensure_ascii=False, default=str)
